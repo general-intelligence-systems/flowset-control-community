@@ -23,57 +23,66 @@
     </actions>
     <layout expand="rootBox">
         <vbox id="rootBox" padding="false">
-            <formLayout id="form" dataContainer="bpmEngineDc" width="100%">
-                <responsiveSteps>
-                    <responsiveStep minWidth="0" columns="1"/>
-                    <responsiveStep minWidth="20em" columns="2"/>
-                    <responsiveStep minWidth="50em" columns="2"/>
-                    <responsiveStep minWidth="70em" columns="3"/>
-                    <responsiveStep minWidth="80em" columns="4"/>
-                </responsiveSteps>
-                <textField id="nameField" property="name" width="100%" classNames="pt-0"
-                           label="msg://io.flowset.control.entity.engine/BpmEngine.name" maxLength="50"/>
-                <hbox padding="false" alignItems="BASELINE">
-                    <select id="typeField" property="type" classNames="pt-s"
-                            label="msg://io.flowset.control.entity.engine/BpmEngine.type" width="100%"/>
-                    <hbox alignItems="BASELINE" padding="false" spacing="false">
-                        <checkbox id="defaultField" classNames="pt-s"
-                                  label="msg://io.flowset.control.entity.engine/BpmEngine.isDefault"
-                                  dataContainer="bpmEngineDc"
-                                  property="isDefault"/>
-                        <icon icon="QUESTION_CIRCLE" classNames="text-secondary" size="0.8em">
-                            <tooltip text="msg://defaultEngine.tooltipText"/>
-                        </icon>
-                    </hbox>
+<!--            <tabSheet id="tabsheet" width="100%" height="100%">
+                <tab id="generalTab" label="msg://generalTab.label">-->
+                    <vbox id="generalBox" padding="false">
+                        <formLayout id="form" dataContainer="bpmEngineDc" width="100%">
+                            <responsiveSteps>
+                                <responsiveStep minWidth="0" columns="1"/>
+                                <responsiveStep minWidth="20em" columns="2"/>
+                                <responsiveStep minWidth="50em" columns="2"/>
+                                <responsiveStep minWidth="70em" columns="3"/>
+                                <responsiveStep minWidth="80em" columns="4"/>
+                            </responsiveSteps>
+                            <textField id="nameField" property="name" width="100%" classNames="pt-0"
+                                       label="msg://io.flowset.control.entity.engine/BpmEngine.name" maxLength="50"/>
+                            <hbox padding="false" alignItems="BASELINE">
+                                <select id="typeField" property="type" classNames="pt-s"
+                                        label="msg://io.flowset.control.entity.engine/BpmEngine.type" width="100%"/>
+                                <hbox alignItems="BASELINE" padding="false" spacing="false">
+                                    <checkbox id="defaultField" classNames="pt-s"
+                                              label="msg://io.flowset.control.entity.engine/BpmEngine.isDefault"
+                                              dataContainer="bpmEngineDc"
+                                              property="isDefault"/>
+                                    <icon icon="QUESTION_CIRCLE" classNames="text-secondary" size="0.8em">
+                                        <tooltip text="msg://defaultEngine.tooltipText"/>
+                                    </icon>
+                                </hbox>
 
-                </hbox>
+                            </hbox>
 
-                <div colspan="2" classNames="pt-0"/>
-                <textField id="baseUrlField" width="100%" colspan="2"
-                           label="msg://io.flowset.control.entity.engine/BpmEngine.baseUrl" valueChangeMode="ON_BLUR"
-                           property="baseUrl"
-                           classNames="pt-s"/>
-                <hbox padding="false">
-                    <comboBox id="environmentTypeField" label="msg://io.flowset.control.entity.engine/BpmEngine.environmentType" required="false"
-                              property="environmentType" width="AUTO" clearButtonVisible="true"/>
-                </hbox>
-            </formLayout>
-            <vbox id="details" padding="false"
-                  width="100%" themeNames="spacing-xs">
-                <h4 text="msg://authPropertiesAccordionPanel.label"/>
-                <vbox padding="false" themeNames="spacing-xs">
-                    <checkbox id="authEnabledField" classNames="pt-s"
-                              label="msg://authEnabled"
-                              dataContainer="bpmEngineDc"
-                              property="authEnabled"/>
-                    <radioButtonGroup id="authTypeGroup" classNames="pt-s"
-                                      label="msg://authType"
-                                      dataContainer="bpmEngineDc"
-                                      property="authType"
-                                      itemsEnum="io.flowset.control.entity.engine.AuthType"/>
-                    <div id="authBox" width="100%"/>
-                </vbox>
-            </vbox>
+                            <div colspan="2" classNames="pt-0"/>
+                            <textField id="baseUrlField" width="100%" colspan="2"
+                                       label="msg://io.flowset.control.entity.engine/BpmEngine.baseUrl"
+                                       valueChangeMode="ON_BLUR"
+                                       property="baseUrl"
+                                       classNames="pt-s"/>
+                            <hbox padding="false">
+                                <comboBox id="environmentTypeField"
+                                          label="msg://io.flowset.control.entity.engine/BpmEngine.environmentType"
+                                          required="false"
+                                          property="environmentType" width="AUTO" clearButtonVisible="true"/>
+                            </hbox>
+                        </formLayout>
+                        <vbox id="details" padding="false"
+                              width="100%" themeNames="spacing-xs">
+                            <h4 text="msg://authPropertiesAccordionPanel.label"/>
+                            <vbox padding="false" themeNames="spacing-xs">
+                                <checkbox id="authEnabledField" classNames="pt-s"
+                                          label="msg://authEnabled"
+                                          dataContainer="bpmEngineDc"
+                                          property="authEnabled"/>
+                                <radioButtonGroup id="authTypeGroup" classNames="pt-s"
+                                                  label="msg://authType"
+                                                  dataContainer="bpmEngineDc"
+                                                  property="authType"
+                                                  itemsEnum="io.flowset.control.entity.engine.AuthType"/>
+                                <div id="authBox" width="100%"/>
+                            </vbox>
+                        </vbox>
+                    </vbox>
+<!--                </tab>
+            </tabSheet>-->
         </vbox>
         <hbox id="detailActions" justifyContent="START" alignItems="BASELINE" width="100%"
               classNames="sticky-buttons-bottom-panel">
