@@ -1,4 +1,22 @@
-**Flowset Control Community** is a web application that provides administrative functionality for external BPM engines.
+<div align="center">
+
+# 🚀 Flowset Control Community
+
+**A powerful web application for managing and administering external BPM engines**
+
+[![Website](https://img.shields.io/badge/Website-flowset.io-blue?style=for-the-badge&logo=google-chrome)](https://flowset.io/)
+[![Demo](https://img.shields.io/badge/Demo-Try_Now-green?style=for-the-badge&logo=demo)](https://demo-control.flowset.io/login)
+[![Documentation](https://img.shields.io/badge/Docs-Read_Here-orange?style=for-the-badge&logo=read-the-docs)](https://docs.flowset.io/flowset/intro.html)
+[![GitHub](https://img.shields.io/badge/GitHub-flowset-black?style=for-the-badge&logo=github)](https://github.com/flowset)
+[![Slack](https://img.shields.io/badge/Slack-Join_Us-purple?style=for-the-badge&logo=slack)](https://flowset-io.slack.com/)
+
+---
+
+![Flowset Control Community](img/preview.png)
+
+---
+
+</div>
 
 **Key Features**
 - **Connection Management:** Easily set up connections to various BPM engines and switch between them as needed.
