@@ -8,6 +8,8 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    outputs:
+      updated: ${{ steps.sync.outputs.updated }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,8 +19,23 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync upstream
+        id: sync
         run: |
           git remote add upstream https://github.com/flowset/flowset-control-community.git
           git fetch upstream main
-          git merge upstream/main --no-edit
-          git push origin main
+          LOCAL=$(git rev-parse HEAD)
+          UPSTREAM=$(git rev-parse upstream/main)
+          if [ "$LOCAL" = "$UPSTREAM" ]; then
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+            echo "Already up to date"
+          else
+            git merge upstream/main --no-edit
+            git push origin main
+            echo "updated=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: sync
+    if: needs.sync.outputs.updated == 'true'
+    uses: ./.github/workflows/build-image.yml
+    secrets: inherit
