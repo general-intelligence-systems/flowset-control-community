@@ -1,0 +1,34 @@
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# Build outputs (we rebuild inside Docker)
+build/
+.gradle/
+.jmix/
+out/
+target/
+
+# Node / Vaadin generated (rebuilt during Docker build)
+node_modules/
+src/main/frontend/generated/
+src/main/bundles/
+pnpmfile.js
+vite.generated.ts
+webpack.generated.js
+
+# Docker files (avoid recursive context)
+docker-compose/
+
+# Misc
+.DS_Store
+img/
+*.md
+LICENSE
