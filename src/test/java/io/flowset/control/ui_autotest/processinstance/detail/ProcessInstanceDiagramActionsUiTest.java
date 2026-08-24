@@ -137,7 +137,6 @@ public class ProcessInstanceDiagramActionsUiTest extends AbstractCamunda7UiTest 
         SelenideElement viewport = bpmnViewerFragment.getBpmnViewerContainer()
                 .find(DIAGRAM_SVG_VIEWPORT_BY)
                 .shouldBe(exist);
-        String sourceTransform = Strings.nullToEmpty(viewport.attr("transform"));
 
         // when
         bpmnViewerFragment.getZoomOutButton()
