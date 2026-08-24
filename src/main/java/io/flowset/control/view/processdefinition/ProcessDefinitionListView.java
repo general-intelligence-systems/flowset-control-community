@@ -28,6 +28,7 @@ import io.jmix.flowui.component.checkbox.JmixCheckbox;
 import io.jmix.flowui.component.combobox.JmixComboBox;
 import io.jmix.flowui.component.formlayout.JmixFormLayout;
 import io.jmix.flowui.component.grid.DataGrid;
+import io.jmix.flowui.component.pagination.SimplePagination;
 import io.jmix.flowui.component.textfield.TypedTextField;
 import io.jmix.flowui.facet.UrlQueryParametersFacet;
 import io.jmix.flowui.kit.action.ActionPerformedEvent;
@@ -87,6 +88,8 @@ public class ProcessDefinitionListView extends AbstractListViewWithDelayedLoad<P
     protected DataGrid<ProcessDefinitionData> processDefinitionsGrid;
     @ViewComponent
     protected UrlQueryParametersFacet urlQueryParameters;
+    @ViewComponent
+    protected SimplePagination processDefinitionPagination;
 
     protected ProcessDefinitionListQueryParamBinder filterParamBinder;
 
@@ -99,6 +102,7 @@ public class ProcessDefinitionListView extends AbstractListViewWithDelayedLoad<P
 
         this.filterParamBinder = new ProcessDefinitionListQueryParamBinder(processDefinitionFilterDc, this::startLoadData, filterFormLayout);
         urlQueryParameters.registerBinder(filterParamBinder);
+        registerPaginationParameterBinder(processDefinitionPagination);
     }
 
     @Install(to = "processDefinitionsDl", target = Target.DATA_LOADER)
