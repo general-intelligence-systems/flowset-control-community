@@ -117,8 +117,8 @@ public class EngineAuthenticatorTest extends AbstractIntegrationTest {
         String encodedCredentials = Base64.getEncoder()
                 .encodeToString("john:secret".getBytes(StandardCharsets.UTF_8));
 
-        assertThat(headers)
-                .containsEntry("Authorization", List.of("Basic " + encodedCredentials));
+        assertThat(headers.get("Authorization"))
+                .containsExactly("Basic " + encodedCredentials);
 
     }
 
@@ -151,8 +151,8 @@ public class EngineAuthenticatorTest extends AbstractIntegrationTest {
         engineAuthenticator.applyAuthentication(engine, headers);
 
         //then
-        assertThat(headers)
-                .containsEntry("X-Engine-Token", List.of("token-123"));
+        assertThat(headers.get("X-Engine-Token"))
+                .containsExactly("token-123");
     }
 
     @Test
@@ -183,7 +183,7 @@ public class EngineAuthenticatorTest extends AbstractIntegrationTest {
         engineAuthenticator.applyAuthentication(engine, headers);
 
         //then
-        assertThat(headers).doesNotContainKey("Authorization");
+        assertThat(headers.headerNames()).doesNotContain("Authorization");
     }
 
     @Test
@@ -214,7 +214,7 @@ public class EngineAuthenticatorTest extends AbstractIntegrationTest {
         engineAuthenticator.applyAuthentication(engine, headers);
 
         //then
-        assertThat(headers).doesNotContainKey("Authorization");
+        assertThat(headers.headerNames()).doesNotContain("Authorization");
     }
 
     @Test

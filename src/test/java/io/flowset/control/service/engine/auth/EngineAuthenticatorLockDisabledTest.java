@@ -132,7 +132,7 @@ public class EngineAuthenticatorLockDisabledTest extends AbstractIntegrationTest
         engineAuthenticator.applyAuthentication(engine, headers);
 
         //then
-        assertThat(headers).doesNotContainKey(HttpHeaders.AUTHORIZATION);
+        assertThat(headers.headerNames()).doesNotContain(HttpHeaders.AUTHORIZATION);
 
         Optional<EngineAuthState> engineAuthState = findEngineAuthState(engine);
         assertThat(engineAuthState).isEmpty();
